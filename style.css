@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: #f2f2f2;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #111;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 0 0 20px 0;
+    font-size: 1.1em;
+    color: #aaa;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: #f2f2f2;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00d4ff;
+    text-decoration: underline;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #1a1a1a;
+}
+
+.hero h2 {
+    font-size: 2em;
+    margin: 0 0 20px 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #aaa;
+    margin: 0;
+}
+
+.metrics {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.metric-box {
+    background: #222;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.metric-box h3 {
+    font-size: 2em;
+    margin: 0 0 10px 0;
+    color: #00d4ff;
+}
+
+.metric-box p {
+    margin: 0;
+    color: #aaa;
+    font-size: 0.95em;
+}
+
+.module-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.module-card {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 280px;
+    text-align: center;
+    color: #f2f2f2;
+    text-decoration: none;
+    transition: 0.2s ease;
+    border: 1px solid #333;
+    display: block;
+}
+
+.module-card:hover {
+    background: #333;
+    transform: scale(1.03);
+    border-color: #00d4ff;
+}
+
+.module-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.5em;
+    color: #00d4ff;
+}
+
+.module-card p {
+    margin: 0;
+    color: #aaa;
+    font-size: 0.95em;
+}
+
+.architecture, .energy, .federated, .retail-section, .energy-section, .fed-section, .platform-section, .founder-section {
+    padding: 40px 20px;
+    background: #1a1a1a;
+    margin-top: 20px;
+}
+
+.architecture h2, .energy h2, .federated h2, .retail-section h2, .energy-section h2, .fed-section h2, .platform-section h2, .founder-section h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+.architecture ul, .federated ul, .retail-section ul, .energy-section ul, .fed-section ul, .platform-section ul, .founder-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.architecture li, .federated li, .retail-section li, .energy-section li, .fed-section li, .platform-section li, .founder-section li {
+    padding: 12px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.architecture li:before, .federated li:before, .retail-section li:before, .energy-section li:before, .fed-section li:before, .platform-section li:before, .founder-section li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #00d4ff;
+}
+
+.retail-section {
+    background: #222;
+    border-radius: 10px;
+}
+
+.energy-section {
+    background: #222;
+    border-radius: 10px;
+}
+
+.fed-section {
+    background: #222;
+    border-radius: 10px;
+}
+
+.platform-section {
+    background: #222;
+    border-radius: 10px;
+}
+
+.founder-section {
+    background: #222;
+    border-radius: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #111;
+    margin-top: 40px;
+    border-top: 2px solid #1a1a1a;
+    color: #aaa;
+}
+
+.footer a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+p {
+    color: #cccccc;
+}
+
+strong {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .metrics, .module-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .metric-box, .module-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    .hero h2 {
+        font-size: 1.4em;
+    }
+    
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
