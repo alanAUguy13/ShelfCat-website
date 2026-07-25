@@ -13,8 +13,7 @@
 name: SLSA generic generator
 on:
   workflow_dispatch:
-  release:
-    types: [created]
+  # Note: release triggers have been removed to avoid automatic uploads/publishing
 
 jobs:
   build:
@@ -56,11 +55,11 @@ jobs:
 
   provenance:
     needs: [build]
+    # Reduced permissions to prevent any write/publish actions from this workflow
     permissions:
       actions: read   # To read the workflow path.
-      id-token: write # To sign the provenance.
-      contents: write # To add assets to a release.
+      contents: read  # Read-only access; no write permission
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
     with:
       base64-subjects: "${{ needs.build.outputs.digests }}"
-      upload-assets: true # Optional: Upload to a new release
+      upload-assets: false # Disabled: do not upload artifacts or create releases from this workflow
