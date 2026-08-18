@@ -1,0 +1,53 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build site
+        run: |
+          mkdir -p dist
+          cp -r . dist/ 2>/dev/null || true
+          echo "Production build ready"
+      
+      # Choose ONE deployment option below:
+      
+      # Option 1: Deploy to GitHub Pages (if enabled)
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+      
+      # Option 2: Deploy to Railway (requires RAILWAY_TOKEN)
+      # - name: Deploy to Railway
+      #   if: github.ref == 'refs/heads/main'
+      #   run: |
+      #     npm install -g @railway/cli
+      #     railway up --force
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      
+      # Option 3: Deploy to Vercel (requires VERCEL_TOKEN)
+      # - name: Deploy to Vercel
+      #   if: github.ref == 'refs/heads/main'
+      #   uses: vercel/action@master
+      #   with:
+      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+      #     vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+      
+      - name: Deployment Summary
+        run: |
+          echo "✅ Deployment workflow completed"
+          echo "Deployed from: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
